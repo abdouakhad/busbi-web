@@ -52,7 +52,7 @@ export default function HomePage() {
                 <span className="text-primary">Bus Bi</span> app.{`"`}
               </h1>
               <div className="flex md:justify-start justify-center  flex-row gap-4 mt-8">
-                <Link href="/">
+                <Link href="https://apps.apple.com/sn/app/bus-bi/id1661159390?l=fr">
                   <a className="bg-black grid grid-cols-5 justify-center items-center text-white py-2 px-4 rounded-xl">
                     <div className="col-span-1">
                       {" "}
