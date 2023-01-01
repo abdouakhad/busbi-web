@@ -17,7 +17,7 @@ export function TopBar({}) {
         </div>
         <div className="grid grid-cols-3 gap-4 text-center justify-center sm:mt-0 mt-2">
           <p>
-            <Link href="/">
+            <Link href="https://www.facebook.com/profile.php?id=100085834651085&mibextid=LQQJ4d">
               <a>
                 {" "}
                 <FontAwesomeIcon icon={["fab", "facebook"]} />

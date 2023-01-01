@@ -22,15 +22,18 @@ export default function HomePage() {
           <div className="container py-16 sm:py-0 flex h-full justify-center items-center relative mx-auto  px-4 bg-white">
             <div className=" p-4 rounded-md z-10 md:text-left text-center container mx-auto ">
               <h1 className="font-black text-center text-black lg:text-4xl md:text-3xl text-3xl leading-tight my-4	">
-                Welcome to the Bus Bi app!
+                Bienvenue sur l{`'`}application Bus Bi!
               </h1>
               <p className=" text-sm text-center font-light text-black px-2 my-12 rounded">
-                Never miss your bus again with our real-time bus location
-                tracking app. With just a few clicks, you can see exactly where
-                your bus is and how long until it arrives at your stop. No more
-                standing in the cold, wondering when your ride will show up.
-                Download Bus Location Tracker today and never stress about
-                catching the bus again!
+                Ne manquez plus jamais votre bus avec notre application de
+                localisation de bus en temps réel. En quelques clics, vous
+                pouvez voir exactement où se trouve votre bus et combien de
+                temps jusqu{`'`}à ce qu{`'`}il arrive à votre arrêt. Plus besoin
+                de rester debout dans le froid en se demandant quand votre
+                véhicule arrivera. Téléchargez
+                <span className="text-primary font-black"> Bus Bi</span> aujourd
+                {`'`}
+                hui et ne vous souciez plus jamais de prendre le bus!
               </p>
               <p className="flex justify-center items-center max-w-sm mx-auto ">
                 <FontAwesomeIcon
@@ -47,9 +50,10 @@ export default function HomePage() {
         <div className="container mx-auto">
           <div className="grid md:grid-cols-2 gap-4  justify-center items-center">
             <div>
-              <h1 className=" leading-relaxed text-4xl font-bold text-marron  md:max-w-sm  w-full">
-                {`"`}Find your ride anytime any where with the
-                <span className="text-primary">Bus Bi</span> app.{`"`}
+              <h1 className=" leading-relaxed text-3xl font-bold text-marron  md:max-w-sm  w-full">
+                Trouvez votre trajet à tout moment et n{`'`}importe où avec l
+                {`'`}application
+                <span className="text-primary"> Bus Bi</span>.
               </h1>
               <div className="flex md:justify-start justify-center  flex-row gap-4 mt-8">
                 <Link href="https://apps.apple.com/sn/app/bus-bi/id1661159390?l=fr">
@@ -59,7 +63,7 @@ export default function HomePage() {
                       <FontAwesomeIcon size="lg" icon={["fab", "apple"]} />{" "}
                     </div>
                     <div className="ml-2 col-span-4 text-sm font-light">
-                      <p className="font-light"> Download on</p>
+                      <p className="font-light">Telecharger sur</p>
                       <p> App Store </p>
                     </div>
                   </a>
@@ -75,7 +79,7 @@ export default function HomePage() {
                       />{" "}
                     </p>
                     <div className="ml-2 col-span-4 text-sm ">
-                      <p className="font-light"> Get it on</p>
+                      <p className="font-light"> Telecharger sur</p>
                       <p> Play Store </p>
                     </div>
                   </a>
