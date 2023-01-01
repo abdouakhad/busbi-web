@@ -25,6 +25,15 @@ export default function HomePage() {
                 Bienvenue sur l{`'`}application Bus Bi!
               </h1>
               <p className=" text-sm text-center font-light text-black px-2 my-12 rounded">
+                Bienvenue sur l{`'`}application Bus Bi ! Vous trouverez ici tous
+                les itinéraires de bus disponibles au Sénégal, ce qui vous
+                permettra de planifier facilement vos déplacements à travers le
+                pays. Sélectionnez simplement vos points de départ et d{`'`}
+                arrivée, et nous vous fournirons une liste d{`'`}options parmi
+                lesquelles choisir.
+              </p>
+              {/* For V2 */}
+              {/* <p className=" text-sm text-center font-light text-black px-2 my-12 rounded">
                 Ne manquez plus jamais votre bus avec notre application de
                 localisation de bus en temps réel. En quelques clics, vous
                 pouvez voir exactement où se trouve votre bus et combien de
@@ -34,7 +43,7 @@ export default function HomePage() {
                 <span className="text-primary font-black"> Bus Bi</span> aujourd
                 {`'`}
                 hui et ne vous souciez plus jamais de prendre le bus!
-              </p>
+              </p> */}
               <p className="flex justify-center items-center max-w-sm mx-auto ">
                 <FontAwesomeIcon
                   icon="fa-location-pin-lock"
