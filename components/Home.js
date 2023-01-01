@@ -95,7 +95,7 @@ export default function HomePage() {
                 </Link>
               </div>
             </div>
-            <div className="relative">
+            <div className="relative h-full">
               <Image
                 src="/images/logo1.png"
                 alt="Picture of the author"
