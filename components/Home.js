@@ -55,9 +55,9 @@ export default function HomePage() {
           </div>
         </div>
       </main>
-      <div className=" max-h-[80vh] md:mt-0 mt-8 md:text-left text-center md:flex items-center max-w-4xl mx-auto xl:px-8 px-4">
-        <div className="container mx-auto">
-          <div className="grid md:grid-cols-2 gap-4  justify-center items-center">
+      <div className=" md:mt-0 mt-8 h-full md:text-left text-center md:flex items-center max-w-4xl mx-auto xl:px-8 px-4">
+        <div className="container  mx-auto h-full">
+          <div className="grid  md:grid-cols-2  gap-4 h-full justify-center items-center">
             <div>
               <h1 className=" leading-relaxed text-3xl font-bold text-marron  md:max-w-sm  w-full">
                 Trouvez votre trajet à tout moment et n{`'`}importe où avec l
@@ -95,7 +95,7 @@ export default function HomePage() {
                 </Link>
               </div>
             </div>
-            <div className="relative h-full">
+            <div className="relative ">
               <Image
                 src="/images/logo1.png"
                 alt="Picture of the author"
@@ -105,7 +105,6 @@ export default function HomePage() {
                 objectFit="contain"
               />
             </div>
-            <div className="flex flex-col justify-center"></div>
           </div>
         </div>
       </div>
