@@ -32,9 +32,12 @@ export function TopBar({}) {
             </Link>
           </p>
           <p>
-            <Link href="/">
+            <Link
+              href="https://web.whatsapp.com/send?phone=+221773659481&text&app_absent=0
+"
+            >
               <a>
-                <FontAwesomeIcon icon={["fab", "twitter"]} />
+                <FontAwesomeIcon icon={["fab", "whatsapp"]} />
               </a>
             </Link>
           </p>

@@ -24,13 +24,19 @@ export default function HomePage() {
               <h1 className="font-black text-center text-black lg:text-4xl md:text-3xl text-3xl leading-tight my-4	">
                 Bienvenue sur l{`'`}application Bus Bi!
               </h1>
-              <p className=" text-sm text-center font-light text-black px-2 my-12 rounded">
-                Bienvenue sur l{`'`}application Bus Bi ! Vous trouverez ici tous
-                les itinéraires de bus disponibles au Sénégal, ce qui vous
-                permettra de planifier facilement vos déplacements à travers le
-                pays. Sélectionnez simplement vos points de départ et d{`'`}
-                arrivée, et nous vous fournirons une liste d{`'`}options parmi
-                lesquelles choisir.
+              <p className=" leading-loose text-sm text-center font-light text-black px-2 my-12 rounded">
+                Bienvenue sur l'application Bus Bi! Nous vous offrons la
+                possibilité de{" "}
+                <span className="font-black text-primary"> réserver </span> vos
+                billets pour{" "}
+                <span className="font-black text-primary uppercase">
+                  Senegal Dem Dikk
+                </span>{" "}
+                en toute simplicité. Avec notre plateforme, vous avez accès à
+                tous les itinéraires de bus disponibles au Sénégal. Planifiez
+                vos déplacements en toute confiance en choisissant simplement
+                vos points de départ et d'arrivée. Nous vous présenterons
+                ensuite une liste d'options claires pour votre voyage.
               </p>
               {/* For V2 */}
               {/* <p className=" text-sm text-center font-light text-black px-2 my-12 rounded">
