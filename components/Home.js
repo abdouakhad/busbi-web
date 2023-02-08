@@ -25,18 +25,18 @@ export default function HomePage() {
                 Bienvenue sur l{`'`}application Bus Bi!
               </h1>
               <p className=" leading-loose text-sm text-center font-light text-black px-2 my-12 rounded">
-                Bienvenue sur l'application Bus Bi! Nous vous offrons la
-                possibilité de{" "}
+                {`Bienvenue sur l'application Bus Bi! Nous vous offrons la
+                possibilité de`}
                 <span className="font-black text-primary"> réserver </span> vos
                 billets pour{" "}
                 <span className="font-black text-primary uppercase">
                   Senegal Dem Dikk
                 </span>{" "}
-                en toute simplicité. Avec notre plateforme, vous avez accès à
+                {`en toute simplicité. Avec notre plateforme, vous avez accès à
                 tous les itinéraires de bus disponibles au Sénégal. Planifiez
                 vos déplacements en toute confiance en choisissant simplement
                 vos points de départ et d'arrivée. Nous vous présenterons
-                ensuite une liste d'options claires pour votre voyage.
+                ensuite une liste d'options claires pour votre voyage.`}
               </p>
               {/* For V2 */}
               {/* <p className=" text-sm text-center font-light text-black px-2 my-12 rounded">
