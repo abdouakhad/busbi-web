@@ -11,7 +11,7 @@ export default function Accueil() {
       className="md:pt-24 min-h-screen md:flex flex-row justify-center items-center text-white bg-primary"
     >
       <div className="flex flex-col justify-center w-full md:px-10 px-4 py-10 bg-primary">
-        <h1 className="md:text-5xl text-3xl font-black md:leading-relaxed">
+        <h1 className="md:text-4xl text-3xl font-black md:leading-relaxed">
           Bus Bi Te Montre L’itinéraire Le Plus Court Pour Tes Déplacements avec
           Le Bus!{" "}
         </h1>
@@ -21,7 +21,7 @@ export default function Accueil() {
           est à quelques minutes de chez toi, et tu peux commander un taxi ou
           faire du covoiturage.
         </p>
-        <div className="flex flex-row justify-between mt-4 m md:max-w-lg">
+        <div className="flex flex-row   justify-evenly mt-4 m md:max-w-lg">
           <DownloadButton
             icon={<FaApple size={40} />}
             text="App Store"
@@ -29,7 +29,7 @@ export default function Accueil() {
           />
           <DownloadButton
             link="https://play.google.com/store/apps/details?id=com.busbi.topandbrice"
-            icon={<IoLogoGooglePlaystore size={40} />}
+            src="/icons/playstore.png"
             text="Google Play"
           />
         </div>

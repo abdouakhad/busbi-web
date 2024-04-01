@@ -10,7 +10,7 @@ export function Member({ src, name, profession }) {
         height={260}
         className="rounded-lg"
         style={{
-          borderRadius: "10px",
+          borderRadius: "30px",
           border: "3px solid #0D00FF",
         }}
       />
