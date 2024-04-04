@@ -36,7 +36,7 @@ function Footer() {
           >
             <div className="flex flex-row gap-2 items-center">
               <Image
-                src="/icons/linkedIn.png"
+                src="/icons/linkedin.svg"
                 alt="Busbi LinkedIn"
                 width={20}
                 height={20}

@@ -6,22 +6,22 @@ const team = [
   {
     src: "/team/brice.png",
     name: "Brice Kebere",
-    profession: "Directeur General",
+    profession: "CEO",
   },
   {
     src: "/team/top.png",
     name: "Abdoul Akhad Top",
-    profession: "Ingenieur en informatique",
+    profession: "CTO, Software Engineer",
   },
   {
     src: "/team/fatima.png",
     name: "Fatoumata Diouf",
-    profession: "Developpeuse Front-end web",
+    profession: "WEB Developer",
   },
   {
     src: "/team/monica.png",
     name: "Astou Monique Ngom",
-    profession: "Developpeuse Front-end web",
+    profession: "IOT Developer",
   },
 ];
 
