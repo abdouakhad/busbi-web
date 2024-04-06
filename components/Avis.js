@@ -1,30 +1,57 @@
+"use client";
+import React, { useState, useEffect } from "react";
 import { Comments } from "./Comments";
-import React from "react";
 import { FaStar, FaUser } from "react-icons/fa6";
 import { IoIosStarHalf } from "react-icons/io";
 import { FaRegStar } from "react-icons/fa";
 
-const comments = [
-  {
-    user: "AB",
-    comments:
-      "Parfait ! Pensez juste à une mise à jour pour intégrer une carte interactive Map.",
-  },
-  {
-    user: "DE",
-    comments:
-      "Salam nous les thiessois on souhaite avoir un bus qui prend départ à Dieuppeul comme les autres destinations !",
-  },
-  {
-    user: "AB",
-    comments: "C un app complet et utile",
-  },
-  {
-    user: "DE",
-    comments: "Faites des efforts par rapport à la régularité des bus !",
-  },
-];
+import { db } from "../app/firebaseConfig";
+import { collection, query, getDocs } from "firebase/firestore";
+
+async function getComments() {
+  const commentsCol = collection(db, "reviews");
+  const commentsSnapshot = await getDocs(commentsCol);
+  // Get the id and data for each document
+  const commentsList = commentsSnapshot.docs.map((doc) => ({
+    id: doc.id,
+    ...doc.data(),
+  }));
+  return commentsList;
+}
+
+// const myComments = [
+//   {
+//     user: "AB",
+//     comments:
+//       "Parfait ! Pensez juste à une mise à jour pour intégrer une carte interactive Map.",
+//   },
+//   {
+//     user: "DE",
+//     comments:
+//       "Salam nous les thiessois on souhaite avoir un bus qui prend départ à Dieuppeul comme les autres destinations !",
+//   },
+//   {
+//     user: "AB",
+//     comments: "C un app complet et utile",
+//   },
+//   {
+//     user: "DE",
+//     comments: "Faites des efforts par rapport à la régularité des bus !",
+//   },
+// ];
+
 function Avis() {
+  const [comments, setComments] = useState([]);
+
+  useEffect(() => {
+    async function fetchComments() {
+      const commentsList = await getComments();
+      setComments(commentsList);
+    }
+    fetchComments();
+  }, []);
+
+  var sampleComments = [];
   return (
     <div id="reviews" className="px-6 py-10 max-w-5xl mx-auto">
       <h1 className="text-xl">Avis & Commentaires 😀</h1>
@@ -70,11 +97,9 @@ function Avis() {
           <Comments
             key={index}
             user={comment.user}
-            comments={comment.comments}
+            comments={comment.comment}
           />
         ))}
-        {/* <Comments /> */}
-        {/* </div> */}
       </div>
     </div>
   );

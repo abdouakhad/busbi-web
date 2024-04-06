@@ -31,15 +31,8 @@ const Navbar = () => {
 
   return (
     <div className="flex justify-between items-center w-full  px-4 text-black bg-white md:fixed nav  ">
-      <div className>
-        {/* <h1 className="= font-signature ml-2"><a className="link-underline hover:transition ease-in-out delay-150 hover:underline hover:decoration-solid" href="">Logo</a></h1> */}
+      <div>
         <h1 className="= font-signature ml-2">
-          {/* <a
-            className="link-underline link-underline-black"
-            href=""
-            target="_blank"
-            rel="noreferrer"
-          > */}
           <Image
             src="/logo.png"
             alt="Logo"
@@ -47,7 +40,6 @@ const Navbar = () => {
             height={100}
             className="rounded-full"
           />
-          {/* </a> */}
         </h1>
       </div>
 
