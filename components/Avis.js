@@ -7,38 +7,18 @@ import { FaRegStar } from "react-icons/fa";
 
 import { db } from "../app/firebaseConfig";
 import { collection, query, getDocs } from "firebase/firestore";
+import { comment } from "postcss";
 
 async function getComments() {
   const commentsCol = collection(db, "reviews");
   const commentsSnapshot = await getDocs(commentsCol);
   // Get the id and data for each document
   const commentsList = commentsSnapshot.docs.map((doc) => ({
-    id: doc.id,
+    id: doc.id.substring(0, 2),
     ...doc.data(),
   }));
   return commentsList;
 }
-
-// const myComments = [
-//   {
-//     user: "AB",
-//     comments:
-//       "Parfait ! Pensez juste à une mise à jour pour intégrer une carte interactive Map.",
-//   },
-//   {
-//     user: "DE",
-//     comments:
-//       "Salam nous les thiessois on souhaite avoir un bus qui prend départ à Dieuppeul comme les autres destinations !",
-//   },
-//   {
-//     user: "AB",
-//     comments: "C un app complet et utile",
-//   },
-//   {
-//     user: "DE",
-//     comments: "Faites des efforts par rapport à la régularité des bus !",
-//   },
-// ];
 
 function Avis() {
   const [comments, setComments] = useState([]);
@@ -51,7 +31,57 @@ function Avis() {
     fetchComments();
   }, []);
 
-  var sampleComments = [];
+  const sampleComments = [];
+
+  let count5 = 0;
+  let count4 = 0;
+  let count3 = 0;
+  let count2 = 0;
+  let count1 = 0;
+
+  comments.forEach((comment) => {
+    switch (comment.rating) {
+      case 5:
+        count5++;
+        break;
+      case 4:
+        count4++;
+        break;
+      case 3:
+        count3++;
+        break;
+      case 2:
+        count2++;
+        break;
+      case 1:
+        count1++;
+        break;
+      default:
+        break;
+    }
+  });
+  const maxRating=Math.max(count1,count2,count3,count4,count5);
+const scaledCount5=Math.round(count5*(100/maxRating));
+const scaledCount4=Math.round(count4*(100/maxRating));
+const scaledCount3=Math.round(count3*(100/maxRating));
+const scaledCount2=Math.round(count2*(100/maxRating));
+const scaledCount1=Math.round(count1*(100/maxRating));
+const totalrating=((count1*1)+(count2*2)+(count3*3)+(count4*4)+count5*5);
+const average=totalrating/comments.length;
+console.log(average);
+  
+  // console.log(scaledCount5);
+  // console.log(scaledCount4);
+  // console.log(scaledCount3);
+  // console.log(scaledCount2);
+  // console.log(scaledCount1);
+
+  for (let i = 0; i < comments.length && i < 4; i++) {
+    sampleComments.push(comments[i]);
+  }
+
+  //console.log("sampleComments", comments);
+
   return (
     <div id="reviews" className="px-6 py-10 max-w-5xl mx-auto">
       <h1 className="text-xl">Avis & Commentaires 😀</h1>
@@ -93,12 +123,8 @@ function Avis() {
         </div>
       </div>
       <div className="my-4 grid md:grid-cols-2 grid-cols-1 gap-4">
-        {comments.map((comment, index) => (
-          <Comments
-            key={index}
-            user={comment.user}
-            comments={comment.comment}
-          />
+        {sampleComments.map((comment, index) => (
+          <Comments key={index} id={comment.id} comments={comment.comment} />
         ))}
       </div>
     </div>
