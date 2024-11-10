@@ -5,8 +5,8 @@ import { FaCheckCircle } from "react-icons/fa";
 
 export default function PaymentSuccess() {
   const handleReturnToApp = () => {
-    // Replace 'yourappscheme' with your actual app scheme
-    window.location.href = "yourappscheme://payment-success?status=completed";
+    // Replace 'busbiapp' with your actual app scheme
+    window.location.href = "busbiapp://payment-success?status=completed";
 
     // Fallback after 2 seconds if app doesn't open
     setTimeout(() => {

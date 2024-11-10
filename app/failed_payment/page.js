@@ -4,8 +4,8 @@ import { FaTimesCircle } from "react-icons/fa";
 
 export default function PaymentFailed() {
   const handleReturnToApp = () => {
-    // Replace 'yourappscheme' with your actual app scheme
-    window.location.href = "yourappscheme://payment-failed?status=failed";
+    // Replace 'busbiapp' with your actual app scheme
+    window.location.href = "busbiapp://payment-failed?status=failed";
 
     // Fallback after 2 seconds if app doesn't open
     setTimeout(() => {
