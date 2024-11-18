@@ -3,17 +3,6 @@
 import { FaTimesCircle } from "react-icons/fa";
 
 export default function PaymentFailed() {
-  const handleReturnToApp = () => {
-    // Replace 'busbiapp' with your actual app scheme
-    window.location.href = "busbiapp://payment-failed?status=failed";
-
-    // Fallback after 2 seconds if app doesn't open
-    setTimeout(() => {
-      window.location.href =
-        "https://play.google.com/store/apps/details?id=your.app.id";
-    }, 2000);
-  };
-
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
       <div className="bg-white rounded-lg shadow-lg p-8 w-full max-w-md">
@@ -28,12 +17,6 @@ export default function PaymentFailed() {
             Nous n&apos;avons pas pu traiter votre paiement. Veuillez réessayer
             ou contacter le support si le problème persiste.
           </p>
-          <button
-            onClick={handleReturnToApp}
-            className="w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-200"
-          >
-            Retourner à l&apos;Application
-          </button>
         </div>
       </div>
     </div>

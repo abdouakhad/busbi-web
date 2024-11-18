@@ -1,0 +1,13 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "8ZPHRX25L9.com.busbi.topandbrice",
+        "paths": [
+          "/records/*"
+        ]
+      }
+    ]
+  }
+}
