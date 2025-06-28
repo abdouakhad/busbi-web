@@ -1,0 +1,15 @@
+[
+    {
+        "relation": [
+            "delegate_permission/common.handle_all_urls"
+        ],
+        "target": {
+            "namespace": "android_app",
+            "package_name": "com.busbi.topandbrice",
+            "sha256_cert_fingerprints": [
+                "14:0D:70:41:88:20:ED:A4:D9:15:72:9B:95:26:8E:DC:EA:5E:DB:3A:7C:6B:0E:52:A4:81:8C:81:8A:F4:78:A3",
+                "50:24:58:20:B4:A8:67:2A:68:A3:71:3A:9C:31:8F:8D:0B:5A:DF:4B:24:CC:9A:F9:1F:F1:8E:CC:15:E8:DA:14"
+            ]
+        }
+    }
+]
