@@ -14,21 +14,21 @@ export default function PaymentSuccess() {
         // For iOS, try to minimize the alert by using location.replace
         try {
           console.log("iOS: Using location.replace");
-          window.location.replace('busbiapp://payment/success');
+          window.location.replace("busbiapp://carpooling/PaymentPendingScreen");
         } catch (e) {
           console.log("iOS: Fallback to location.href", e);
-          window.location.href = 'busbiapp://payment/success';
+          window.location.href = "busbiapp://carpooling/PaymentPendingScreen";
         }
       } else if (isAndroid) {
         console.log("Android: Using location.href");
-        window.location.href = 'busbiapp://payment/success';
+        window.location.href = "busbiapp://carpooling/PaymentPendingScreen";
       } else {
         // Desktop or other platforms
         console.log("Desktop detected");
-        alert('Please open the mobile app to continue');
+        alert("Please open the mobile app to continue");
         // Optionally redirect to home page for desktop users
         setTimeout(() => {
-          window.location.href = '/';
+          window.location.href = "/";
         }, 2000);
       }
     }
@@ -70,7 +70,7 @@ export default function PaymentSuccess() {
           </p>
           <button
             onClick={() => {
-              window.location.href = 'busbiapp://payment/success';
+              window.location.href = "busbiapp://payment/success";
             }}
             className="mt-4 inline-block text-green-600 hover:text-green-700 text-sm underline"
           >
