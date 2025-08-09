@@ -70,7 +70,8 @@ export default function PaymentSuccess() {
           </p>
           <button
             onClick={() => {
-              window.location.href = "busbiapp://payment/success";
+              window.location.href =
+                "busbiapp://carpooling/PaymentPendingScreen";
             }}
             className="mt-4 inline-block text-green-600 hover:text-green-700 text-sm underline"
           >
