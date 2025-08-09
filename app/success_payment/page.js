@@ -4,26 +4,51 @@ import { FaCheckCircle } from "react-icons/fa";
 
 export default function PaymentSuccess() {
   useEffect(() => {
-    function openApp() {
+    function redirectToApp() {
       const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
       const isAndroid = /Android/.test(navigator.userAgent);
 
       console.log("Device detected:", { isIOS, isAndroid });
 
-      if (isIOS || isAndroid) {
+      if (isIOS) {
+        // For iOS, try to minimize the alert by using location.replace
         try {
-          // This won't navigate away from the current page
-          window.open("busbiapp://carpooling/PaymentPendingScreen", "_blank");
-          console.log("Attempted to open app");
+          console.log("iOS: Using location.replace");
+          window.location.replace("busbiapp://carpooling/PaymentPendingScreen");
         } catch (e) {
-          console.log("Failed to open app:", e);
+          console.log("iOS: Fallback to location.href", e);
+          window.location.href = "busbiapp://carpooling/PaymentPendingScreen";
         }
+      } else if (isAndroid) {
+        console.log("Android: Using location.href");
+        window.location.href = "busbiapp://carpooling/PaymentPendingScreen";
       } else {
-        console.log("Desktop detected - app opening not supported");
+        // Desktop or other platforms
+        console.log("Desktop detected");
+        alert("Please open the mobile app to continue");
+        // Optionally redirect to home page for desktop users
+        setTimeout(() => {
+          window.location.href = "/";
+        }, 2000);
       }
     }
 
-    openApp();
+    // Immediate redirect attempt
+    redirectToApp();
+
+    // Fallback mechanism - check if redirect worked
+    const fallbackTimer = setTimeout(() => {
+      console.log("Checking if app opened...");
+      // If we're still on this page after 2 seconds, app likely didn't open
+      if (window.location.href.includes("/payment/success")) {
+        console.log("App didn't open, redirecting to home");
+        window.location.href = "/"; // Redirect to root
+      }
+    }, 2000); // Check after 2 seconds
+
+    return () => {
+      clearTimeout(fallbackTimer);
+    };
   }, []);
 
   return (
