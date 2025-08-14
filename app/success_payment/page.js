@@ -1,31 +1,59 @@
-"use client";
-import { useEffect } from "react";
-import { FaCheckCircle } from "react-icons/fa";
-
 export default function PaymentSuccess() {
   useEffect(() => {
     function redirectToApp() {
-      // Try universal link first
-      window.location.href =
+      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+      const isAndroid = /Android/.test(navigator.userAgent);
+
+      console.log("Device detected:", { isIOS, isAndroid });
+
+      // Try universal link first (works for both iOS and Android)
+      const universalLink =
         "https://busbii.com/carpooling/PaymentPendingScreen";
-      console.log("Attempting to redirect to app via universal link");
-      // Fallback to custom scheme after a short delay
-      setTimeout(() => {
-        console.log("Redirecting to app via custom scheme");
-        window.location.href = "busbiapp://carpooling/PaymentPendingScreen";
-      }, 100);
+
+      // Fallback to custom scheme
+      const customScheme = "busbiapp://carpooling/PaymentPendingScreen";
+
+      if (isIOS) {
+        // Fixed: window.location.href is a property, not a function
+        console.log("iOS: Trying universal link first");
+        window.location.href = universalLink;
+
+        // Fallback to custom scheme after a short delay
+        setTimeout(() => {
+          console.log("iOS: Fallback to custom scheme");
+          window.location.href = customScheme;
+        }, 1000);
+      } else if (isAndroid) {
+        console.log("Android: Trying universal link first");
+        window.location.href = universalLink;
+
+        // Fallback to custom scheme after a short delay
+        setTimeout(() => {
+          console.log("Android: Fallback to custom scheme");
+          window.location.href = customScheme;
+        }, 1000);
+      } else {
+        // Desktop or unknown device - just redirect to universal link
+        window.location.href = universalLink;
+      }
     }
 
+    // Immediate redirect attempt
     redirectToApp();
 
-    // Final fallback to website home
+    // Fallback mechanism - check if redirect worked
     const fallbackTimer = setTimeout(() => {
+      console.log("Checking if app opened...");
+      // If we're still on this page after 3 seconds, app likely didn't open
       if (window.location.href.includes("/payment/success")) {
-        window.location.href = "/";
+        console.log("App didn't open, redirecting to home");
+        window.location.href = "/"; // Redirect to root
       }
-    }, 2000);
+    }, 3000); // Increased to 3 seconds
 
-    return () => clearTimeout(fallbackTimer);
+    return () => {
+      clearTimeout(fallbackTimer);
+    };
   }, []);
 
   return (
@@ -47,8 +75,15 @@ export default function PaymentSuccess() {
           </p>
           <button
             onClick={() => {
+              // Try universal link first
               window.location.href =
                 "https://busbii.com/carpooling/PaymentPendingScreen";
+
+              // Fallback to custom scheme
+              setTimeout(() => {
+                window.location.href =
+                  "busbiapp://carpooling/PaymentPendingScreen";
+              }, 1000);
             }}
             className="mt-4 inline-block text-green-600 hover:text-green-700 text-sm underline"
           >
