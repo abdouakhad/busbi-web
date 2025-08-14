@@ -11,6 +11,7 @@ export default function PaymentSuccess() {
       console.log("Attempting to redirect to app via universal link");
       // Fallback to custom scheme after a short delay
       setTimeout(() => {
+        console.log("Redirecting to app via custom scheme");
         window.location.href = "busbiapp://carpooling/PaymentPendingScreen";
       }, 100);
     }
