@@ -5,37 +5,26 @@ import { FaCheckCircle } from "react-icons/fa";
 export default function PaymentSuccess() {
   useEffect(() => {
     function redirectToApp() {
-      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-      const isAndroid = /Android/.test(navigator.userAgent);
-
-      console.log("Device detected:", { isIOS, isAndroid });
-
-      if (isIOS) {
-        // For iOS, try to minimize the alert by using location.replace
-
-        window.location.href("busbiapp:/carpooling/PaymentPendingScreen");
-      } else {
-        console.log("Android: Using location.href");
-        window.location.href = "busbiapp:/carpooling/PaymentPendingScreen";
-      }
+      // Try universal link first
+      window.location.href =
+        "https://busbii.com/carpooling/PaymentPendingScreen";
+      console.log("Attempting to redirect to app via universal link");
+      // Fallback to custom scheme after a short delay
+      setTimeout(() => {
+        window.location.href = "busbiapp://carpooling/PaymentPendingScreen";
+      }, 100);
     }
 
-    // Immediate redirect attempt
     redirectToApp();
 
-    // Fallback mechanism - check if redirect worked
+    // Final fallback to website home
     const fallbackTimer = setTimeout(() => {
-      console.log("Checking if app opened...");
-      // If we're still on this page after 2 seconds, app likely didn't open
       if (window.location.href.includes("/payment/success")) {
-        console.log("App didn't open, redirecting to home");
-        window.location.href = "/"; // Redirect to root
+        window.location.href = "/";
       }
-    }, 2000); // Check after 2 seconds
+    }, 2000);
 
-    return () => {
-      clearTimeout(fallbackTimer);
-    };
+    return () => clearTimeout(fallbackTimer);
   }, []);
 
   return (
@@ -58,7 +47,7 @@ export default function PaymentSuccess() {
           <button
             onClick={() => {
               window.location.href =
-                "busbiapp:/carpooling/PaymentPendingScreen";
+                "https://busbii.com/carpooling/PaymentPendingScreen";
             }}
             className="mt-4 inline-block text-green-600 hover:text-green-700 text-sm underline"
           >
