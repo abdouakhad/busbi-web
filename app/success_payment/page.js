@@ -11,8 +11,7 @@ export default function PaymentSuccess() {
       console.log("Device detected:", { isIOS, isAndroid });
 
       // Try universal link first (works for both iOS and Android)
-      const universalLink =
-        "https://busbii.com/carpooling/PaymentPendingScreen";
+      const universalLink = "busbiapp://carpooling/PaymentPendingScreen";
 
       // Fallback to custom scheme
       const customScheme = "busbiapp://carpooling/PaymentPendingScreen";
