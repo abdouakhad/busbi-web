@@ -1,3 +1,7 @@
+"use client";
+import { FaCheckCircle } from "react-icons/fa";
+import { useEffect } from "react";
+
 export default function PaymentSuccess() {
   useEffect(() => {
     function redirectToApp() {
